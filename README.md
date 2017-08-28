@@ -1,1 +1,3 @@
-# todoistVisualizer
+# Todoist Visualizer
+
+I started this projects because I realized Todoist is missing a very important feature to close the feedback look. How much time is spent on each project? How many p1 vs p3 tasks? Which tags are most complted? What time of day is most active? Which month? On and on. What interesting is that all this data is there through the Todoist api and they have used it at least once with the "year summary email" where they highlighted questions like above. I want to be able to do this weekly instead of yearly. Hopefully, this will be helpful for other people too who noticed this feature is missing. 
