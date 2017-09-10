@@ -6,7 +6,8 @@ import requests
 
 #print(api.state['tasks'])
 
-response=requests.get('https://todoist.com/API/v7/completed/get_all', params={'token':'a3a70d4305c98b4654d2d33008a50d525c6f2bd1'}).json()
+token=''
+response=requests.get('https://todoist.com/API/v7/completed/get_all', params={'token':token}).json()
 
 days=[]
 projects=[]
