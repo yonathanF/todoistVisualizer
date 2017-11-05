@@ -1,34 +1,27 @@
 from todoist.api import TodoistAPI
-import requests
 
-#api=TodoistAPI('a3a70d4305c98b4654d2d33008a50d525c6f2bd1')
-#api.sync()
-
-#print(api.state['tasks'])
-
-token=''
-response=requests.get('https://todoist.com/API/v7/completed/get_all', params={'token':token}).json()
-
-days=[]
-projects=[]
-tasks=[]
-
-for task in response['items']:
-    tasks.append(task['content'])
-    projects.append(task['project_id'])
-    date=task['completed_date']
-    days.append(date)
-
-projectCount={}
-for projectId in projects:
-    for project in response['projects'].values():
-        if project['id'] == projectId:
-            if project['name'] in projectCount.keys():
-                projectCount[project['name']]+=1
-            else:
-                projectCount[project['name']]=1
+api=TodoistAPI('662882fe83d6daf04c70205cad0eca0d4c29d1cd')
 
 
-print(projectCount)
-    
-    
+formatted=[]
+
+for page in range(0,1000,100):
+    tasks=api.activity.get(limit=100, offset=page, event_type='added')
+
+    for task in tasks:
+        if(task['parent_project_id'] is not None):
+            formatted.append([task['parent_project_id'], task['extra_data']['content'], task['event_date']])
+
+
+project_ids=[]
+project_names={}
+for task in formatted:
+    if task[0] not in project_ids:
+        try:
+            project=api.projects.get(task[0])
+            if project is not None:
+                project_names[task[0]]=project['project']['name']
+        except AttributeError:
+            pass
+        finally:
+            project_ids.append(task[0])
