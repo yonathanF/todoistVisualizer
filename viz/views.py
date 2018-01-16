@@ -1,5 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
+from viz.models import Task
+
 def index(request):
-    return HttpResponse("we are on")
+    qset=Task.objects.all()
+
+    return render(request, 'viz/index.html')

@@ -5,7 +5,8 @@ __pycache__/
 
 /viz/__init__.py
 *__init__*
-db.sqlite3
+*db.sqlite3*
+/viz/apiTest.py
 
 # C extensions
 *.so

@@ -1,0 +1,9 @@
+certifi==2017.7.27.1
+chardet==3.0.4
+Django==1.11.4
+django-graphos-3==1.1
+idna==2.6
+pytz==2017.2
+requests==2.18.4
+todoist-python==7.0.17
+urllib3==1.22
