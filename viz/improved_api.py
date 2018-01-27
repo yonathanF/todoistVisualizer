@@ -38,7 +38,12 @@ def get_title(task):
 def get_all_tasks():
     ''' entry function: gets all the tasks from the api '''
 
-    api = TodoistAPI('secret')
+    api_key = "none"
+
+    with open("api_key.txt", 'r') as api_file:
+        api_key = api_file.read()
+
+    api = TodoistAPI(api_key)
 
     all_tasks = []
 

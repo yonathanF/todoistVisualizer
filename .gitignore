@@ -8,6 +8,7 @@ __pycache__/
 *db.sqlite3*
 /viz/apiTest.py
 *.swp
+*/api_key.txt
 
 # C extensions
 *.so
